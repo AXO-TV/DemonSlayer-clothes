@@ -9,6 +9,8 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  FORGE_VERSION: 1.12.2-14.23.5.2860
+  FORGE_BASE: https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860
 
 jobs:
   build:
@@ -35,27 +37,48 @@ jobs:
           gradle wrapper --gradle-version 4.10.3 --distribution-type bin
           chmod +x gradlew
 
+      - name: Pre-populate Forge Maven cache
+        run: |
+          CACHE_DIR="$HOME/.gradle/caches/modules-2/files-2.1/net.minecraftforge/forge/$FORGE_VERSION"
+          mkdir -p "$CACHE_DIR"
+          
+          # Liste des artifacts nécessaires à ForgeGradle 2.3
+          ARTIFACTS=(
+            "forge-1.12.2-14.23.5.2860-userdev.jar"
+            "forge-1.12.2-14.23.5.2860-installer.jar"
+            "forge-1.12.2-14.23.5.2860.pom"
+          )
+          
+          for ARTIFACT in "${ARTIFACTS[@]}"; do
+            URL="$FORGE_BASE/$ARTIFACT"
+            DEST="$CACHE_DIR/$ARTIFACT"
+            echo "Téléchargement : $URL"
+            wget -q --show-progress -O "$DEST" "$URL" || echo "AVERTISSEMENT : impossible de télécharger $ARTIFACT"
+          done
+          
+          echo "Contenu du cache Forge :"
+          ls -lh "$CACHE_DIR" 2>/dev/null || echo "(vide)"
+
       - name: Cache Gradle
         uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          key: ${{ runner.os }}-gradle-forge-${{ hashFiles('**/*.gradle') }}
           restore-keys: |
+            ${{ runner.os }}-gradle-forge-
             ${{ runner.os }}-gradle-
 
       - name: Setup Forge workspace
-        run: |
-          ./gradlew setupDecompWorkspace --no-daemon --stacktrace
+        run: ./gradlew setupDecompWorkspace --no-daemon --stacktrace
         timeout-minutes: 40
         env:
           JAVA_OPTS: "-Xmx2g"
           GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.parallel=false"
 
       - name: Build mod
-        run: |
-          ./gradlew build --no-daemon --stacktrace
+        run: ./gradlew build --no-daemon
         timeout-minutes: 20
         env:
           JAVA_OPTS: "-Xmx2g"

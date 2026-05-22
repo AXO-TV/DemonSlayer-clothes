@@ -1,7 +1,18 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven {
+            name = "forge"
+            url = "https://maven.minecraftforge.net"
+        }
+        maven {
+            name = "forge-files"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "forge-legacy"
+            url = "https://maven.minecraftforge.net/net/minecraftforge/forge/"
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
@@ -22,8 +33,18 @@ minecraft {
     mappings = "stable_39"
 }
 
+repositories {
+    maven {
+        name = "forge"
+        url = "https://maven.minecraftforge.net"
+    }
+    maven {
+        name = "forge-files"
+        url = "https://files.minecraftforge.net/maven"
+    }
+}
+
 dependencies {
-    // No extra dependencies
 }
 
 processResources {

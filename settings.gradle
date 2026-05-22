@@ -1,10 +1,16 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         maven {
-            name 'GT New Horizons Maven'
-            url 'https://maven.gtnewhorizons.com/releases/'
+            name "GTNH Maven"
+            url "https://nexus.gtnewhorizons.com/repository/public/"
+            mavenContent {
+                includeGroup("com.gtnewhorizons")
+                includeGroupByRegex("com\\.gtnewhorizons\\..+")
+            }
         }
+        gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
     }
 }
 

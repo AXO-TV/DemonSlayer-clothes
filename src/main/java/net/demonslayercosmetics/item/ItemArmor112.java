@@ -16,7 +16,7 @@ public class ItemArmor112 extends ItemArmor {
         super(ArmorMaterial.DIAMOND, 0, slot);
         this.iconTexture = iconTexture;
         setRegistryName("demonslayercosmetics", name);
-        setUnlocalizedName("demonslayercosmetics." + name);
+        setTranslationKey("demonslayercosmetics." + name);
         setCreativeTab(net.minecraft.creativetab.CreativeTabs.COMBAT);
     }
 

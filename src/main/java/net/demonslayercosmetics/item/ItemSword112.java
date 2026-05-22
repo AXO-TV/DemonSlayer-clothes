@@ -14,7 +14,7 @@ public class ItemSword112 extends ItemSword {
         super(ToolMaterial.DIAMOND);
         this.iconTexture = iconTexture;
         setRegistryName("demonslayercosmetics", name);
-        setUnlocalizedName("demonslayercosmetics." + name);
+        setTranslationKey("demonslayercosmetics." + name);
         setCreativeTab(net.minecraft.creativetab.CreativeTabs.COMBAT);
     }
 

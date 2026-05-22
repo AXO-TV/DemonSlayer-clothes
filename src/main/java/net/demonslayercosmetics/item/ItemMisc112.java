@@ -13,7 +13,7 @@ public class ItemMisc112 extends Item {
     public ItemMisc112(String name, String iconTexture) {
         this.iconTexture = iconTexture;
         setRegistryName("demonslayercosmetics", name);
-        setUnlocalizedName("demonslayercosmetics." + name);
+        setTranslationKey("demonslayercosmetics." + name);
         setCreativeTab(net.minecraft.creativetab.CreativeTabs.MISC);
     }
 

@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            name 'GT New Horizons Maven'
+            url 'https://maven.gtnewhorizons.com/releases/'
+        }
+    }
+}
+
+rootProject.name = 'demonslayercosmetics'

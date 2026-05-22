@@ -1,0 +1,55 @@
+name: Build Mod
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+
+      - name: Setup Gradle wrapper
+        run: |
+          wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip -q
+          unzip -q gradle-4.10.3-bin.zip
+          export PATH=$PWD/gradle-4.10.3/bin:$PATH
+          gradle wrapper --gradle-version 4.10.3
+          chmod +x gradlew
+
+      - name: Cache Gradle & Forge
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Setup Forge workspace
+        run: ./gradlew setupDecompWorkspace --no-daemon
+        timeout-minutes: 30
+
+      - name: Build
+        run: ./gradlew build --no-daemon
+        timeout-minutes: 15
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: demonslayercosmetics-1.12.2
+          path: build/libs/*.jar
+          if-no-files-found: error

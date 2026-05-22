@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "demonslayercosmetics",
+    "name": "Demon Slayer Cosmetics",
+    "description": "Adds Demon Slayer anime cosmetics, armors and weapons for Minecraft 1.12.2. Ported from the original 1.20.1 mod by steelhngrs.",
+    "version": "1.0.0",
+    "mcversion": "1.12.2",
+    "url": "",
+    "authorList": ["steelhngrs (original textures)", "port to 1.12.2"],
+    "credits": "Original textures by steelhngrs/Kenneth",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]

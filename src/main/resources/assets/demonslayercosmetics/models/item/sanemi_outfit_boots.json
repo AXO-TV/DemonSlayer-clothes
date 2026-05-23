@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/sanemi_outfit_icon"
+    "layer0": "demonslayercosmetics:items/sanemi_boots_icon"
   }
 }

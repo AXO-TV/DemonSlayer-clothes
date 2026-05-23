@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/basic_sword_icon"
+    "layer0": "demonslayercosmetics:items/standard_uniform_black_icon"
   }
 }

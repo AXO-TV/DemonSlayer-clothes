@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/zenitsu_boots_icon"
+    "layer0": "demonslayercosmetics:item/zenitsu_boots_icon"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/genya_hair_icon"
+    "layer0": "demonslayercosmetics:item/genya_hair_icon"
   }
 }

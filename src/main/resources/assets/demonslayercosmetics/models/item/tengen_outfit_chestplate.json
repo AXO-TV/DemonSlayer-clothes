@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/tengen_shirt_icon"
+    "layer0": "demonslayercosmetics:item/tengen_shirt_icon"
   }
 }

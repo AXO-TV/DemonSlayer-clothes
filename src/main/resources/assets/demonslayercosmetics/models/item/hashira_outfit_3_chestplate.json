@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/hashira_uniform_purple_icon"
+    "layer0": "demonslayercosmetics:item/hashira_uniform_purple_icon"
   }
 }

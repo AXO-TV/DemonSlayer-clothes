@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/cape_icon"
+    "layer0": "demonslayercosmetics:item/cape_icon"
   }
 }

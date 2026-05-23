@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/gyomei_outfit_icon2"
+    "layer0": "demonslayercosmetics:item/gyomei_outfit_icon2"
   }
 }

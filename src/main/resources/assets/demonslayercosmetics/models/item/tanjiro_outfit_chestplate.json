@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/tanjiro_outfit_icon"
+    "layer0": "demonslayercosmetics:item/tanjiro_outfit_icon"
   }
 }

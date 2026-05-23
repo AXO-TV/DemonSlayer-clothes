@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/standard_pants_purple_icon"
+    "layer0": "demonslayercosmetics:item/standard_pants_purple_icon"
   }
 }

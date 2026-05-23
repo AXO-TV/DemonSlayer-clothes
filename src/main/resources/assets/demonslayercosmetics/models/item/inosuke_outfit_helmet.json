@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/inosuke_head_icon"
+    "layer0": "demonslayercosmetics:item/inosuke_head_icon"
   }
 }

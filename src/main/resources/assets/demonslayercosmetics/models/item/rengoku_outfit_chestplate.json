@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "demonslayercosmetics:items/rengoku_uniform_icon"
+    "layer0": "demonslayercosmetics:item/rengoku_uniform_icon"
   }
 }
